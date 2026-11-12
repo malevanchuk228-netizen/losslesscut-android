@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:id="@+id/layoutStrategySelector"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <!-- Scene Change -->
+            <LinearLayout
+                android:id="@+id/btnSceneChange"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/strategy_button_bg"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сцена"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:duplicateParentState="true"/>
+                <ImageButton
+                    android:id="@+id/infoScene"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:src="@drawable/ic_info_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#88FFFFFF"
+                    android:tooltipText="@string/tooltip_strategy_scene"
+                    android:tag="@string/tooltip_strategy_scene"
+                    android:contentDescription="О смене сцен"/>
+            </LinearLayout>
+
+            <View android:layout_width="4dp" android:layout_height="match_parent"/>
+
+            <!-- Black Frames -->
+            <LinearLayout
+                android:id="@+id/btnBlackFrames"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/strategy_button_bg"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Чёрный"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:duplicateParentState="true"/>
+                <ImageButton
+                    android:id="@+id/infoBlack"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:src="@drawable/ic_info_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#88FFFFFF"
+                    android:tooltipText="@string/tooltip_strategy_black"
+                    android:tag="@string/tooltip_strategy_black"
+                    android:contentDescription="О чёрных кадрах"/>
+            </LinearLayout>
+
+            <View android:layout_width="4dp" android:layout_height="match_parent"/>
+
+            <!-- Freeze Frame -->
+            <LinearLayout
+                android:id="@+id/btnFreezeFrame"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/strategy_button_bg"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Зависание"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:duplicateParentState="true"/>
+                <ImageButton
+                    android:id="@+id/infoFreeze"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:src="@drawable/ic_info_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#88FFFFFF"
+                    android:tooltipText="@string/tooltip_strategy_freeze"
+                    android:tag="@string/tooltip_strategy_freeze"
+                    android:contentDescription="О зависаниях"/>
+            </LinearLayout>
+
+            <View android:layout_width="4dp" android:layout_height="match_parent"/>
+
+            <!-- Blur Quality -->
+            <LinearLayout
+                android:id="@+id/btnBlurQuality"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/strategy_button_bg"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Размытие"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:duplicateParentState="true"/>
+                <ImageButton
+                    android:id="@+id/infoBlur"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:src="@drawable/ic_info_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#88FFFFFF"
+                    android:tooltipText="@string/tooltip_strategy_blur"
+                    android:tag="@string/tooltip_strategy_blur"
+                    android:contentDescription="О размытии"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Sample Interval + Detect Action Button Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Шаг кадров"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"/>
+            <ImageButton
+                android:id="@+id/infoInterval"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_info_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:tooltipText="@string/tooltip_sample_interval"
+                android:tag="@string/tooltip_sample_interval"
+                android:contentDescription="Шаг кадров"/>
+            <ImageButton
+                android:id="@+id/btnIntervalMinus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_remove_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Уменьшить шаг кадров"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderInterval"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="-6dp"
+                android:layout_marginEnd="-6dp"
+                android:valueFrom="1"
+                android:valueTo="30"
+                android:stepSize="1"
+                android:value="5"
+                app:haloRadius="0dp"
+                app:thumbRadius="5dp"
+                app:trackHeight="2dp"
+                android:tooltipText="@string/tooltip_sample_interval"/>
+            <ImageButton
+                android:id="@+id/btnIntervalPlus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_add_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Увеличить шаг кадров"/>
+            <TextView
+                android:id="@+id/tvIntervalValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="5 кадров"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDetectAction"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:text="@string/detect"
+                android:textSize="11sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:tooltipText="@string/tooltip_detect"/>
+        </LinearLayout>
+
+        <!-- Progress and Status -->
+        <LinearLayout
+            android:id="@+id/layoutProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone">
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="0"
+                app:indicatorColor="?attr/colorAccent"
+                app:trackColor="#33FFFFFF"/>
+            <TextView
+                android:id="@+id/tvProgressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Анализ…"
+                android:textSize="10sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            app:dividerColor="#33FFFFFF"/>
+
+        <!-- SECTION: FILTER + MODE TOGGLE -->
+        <LinearLayout
+            android:id="@+id/layoutVisualMode"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="2dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ФИЛЬТР"
+                android:textSize="10sp"
+                android:textColor="?attr/colorAccent"
+                android:textStyle="bold"/>
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/btnToggleMode"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                app:checkedButton="@id/btnModeDiscard">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeDiscard"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:textSize="10sp"
+                    android:text="@string/mode_discard_matching"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeKeep"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:textSize="10sp"
+                    android:text="@string/mode_keep_matching"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+
+        <!-- Sensitivity Threshold -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="2dp">
+            <TextView
+                android:id="@+id/tvSensitivityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Чувств."
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"/>
+            <ImageButton
+                android:id="@+id/infoSensitivity"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_info_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:tooltipText="@string/tooltip_sensitivity"
+                android:tag="@string/tooltip_sensitivity"
+                android:contentDescription="Чувствительность"/>
+            <ImageButton
+                android:id="@+id/btnSensitivityMinus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_remove_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Уменьшить чувствительность"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderSensitivity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="-6dp"
+                android:layout_marginEnd="-6dp"
+                android:valueFrom="3"
+                android:valueTo="30"
+                android:value="12"
+                app:haloRadius="0dp"
+                app:thumbRadius="5dp"
+                app:trackHeight="2dp"
+                android:stepSize="1.0"
+                android:tooltipText="@string/tooltip_sensitivity"/>
+            <ImageButton
+                android:id="@+id/btnSensitivityPlus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_add_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Увеличить чувствительность"/>
+            <TextView
+                android:id="@+id/tvSensitivityValue"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="12 bits"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Min Segment Duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Фрагм."
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"/>
+            <ImageButton
+                android:id="@+id/infoMinSegmentVisual"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_info_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:tooltipText="@string/tooltip_min_segment"
+                android:tag="@string/tooltip_min_segment"
+                android:contentDescription="Мин. фрагмент"/>
+            <ImageButton
+                android:id="@+id/btnMinSegmentVisualMinus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_remove_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Уменьшить длительность фрагмента"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderVisualMinSegment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="-6dp"
+                android:layout_marginEnd="-6dp"
+                android:valueFrom="100"
+                android:valueTo="5000"
+                android:stepSize="100"
+                android:value="500"
+                app:haloRadius="0dp"
+                app:thumbRadius="5dp"
+                app:trackHeight="2dp"
+                android:tooltipText="@string/tooltip_min_segment"/>
+            <ImageButton
+                android:id="@+id/btnMinSegmentVisualPlus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_add_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#88FFFFFF"
+                android:contentDescription="Увеличить длительность фрагмента"/>
+            <TextView
+                android:id="@+id/tvVisualMinSegmentValue"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="0.5s"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvDetectedStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Готово к поиску"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/layoutMatchNavigationVisual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnPrevMatchVisual"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_chevron_left_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/previous_match"
+                    android:tooltipText="@string/previous_match"
+                    app:tint="@android:color/white"/>
+
+                <ImageButton
+                    android:id="@+id/btnNextMatchVisual"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_chevron_right_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/next_match"
+                    android:tooltipText="@string/next_match"
+                    app:tint="@android:color/white"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelVisual"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:minHeight="32dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApplyVisual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apply"
+                android:textSize="12sp"
+                android:minHeight="32dp"
+                android:enabled="false"
+                android:tooltipText="@string/tooltip_apply_smart_cut"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
