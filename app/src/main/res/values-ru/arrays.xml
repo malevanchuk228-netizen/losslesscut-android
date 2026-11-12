@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rotation_options">
+        <item>Сохранить исходную</item>
+        <item>Установить 0°</item>
+        <item>Установить 90°</item>
+        <item>Установить 180°</item>
+        <item>Установить 270°</item>
+    </string-array>
+</resources>
