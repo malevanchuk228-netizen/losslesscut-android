@@ -88,6 +88,8 @@ fun MainDashboardScreen(
             .background(backgroundBrush),
         containerColor = Color.Transparent,
         topBar = {
+            val aboutDescription = stringResource(R.string.about_title)
+            val settingsDescription = stringResource(R.string.settings)
             TopAppBar(
                 title = {
                     Row(
@@ -122,7 +124,7 @@ fun MainDashboardScreen(
                     IconButton(
                         onClick = onOpenAbout,
                         modifier = Modifier.semantics {
-                            contentDescription = stringResource(R.string.about_title)
+                            contentDescription = aboutDescription
                         }
                     ) {
                         Icon(
@@ -134,7 +136,7 @@ fun MainDashboardScreen(
                     IconButton(
                         onClick = onOpenSettings,
                         modifier = Modifier.semantics {
-                            contentDescription = stringResource(R.string.settings)
+                            contentDescription = settingsDescription
                         }
                     ) {
                         Icon(
