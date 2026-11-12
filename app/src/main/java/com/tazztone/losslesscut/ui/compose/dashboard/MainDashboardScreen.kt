@@ -122,7 +122,7 @@ fun MainDashboardScreen(
                     IconButton(
                         onClick = onOpenAbout,
                         modifier = Modifier.semantics {
-                            contentDescription = "About LosslessCut"
+                            contentDescription = stringResource(R.string.about_title)
                         }
                     ) {
                         Icon(
@@ -134,7 +134,7 @@ fun MainDashboardScreen(
                     IconButton(
                         onClick = onOpenSettings,
                         modifier = Modifier.semantics {
-                            contentDescription = "Settings"
+                            contentDescription = stringResource(R.string.settings)
                         }
                     ) {
                         Icon(

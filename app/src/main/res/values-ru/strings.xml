@@ -281,4 +281,11 @@
     <string name="next_match">Следующее совпадение</string>
     <string name="select_audio_track">Выбрать аудиодорожку</string>
     <string name="language_ru">Русский</string>
+    <string name="label_cyan">Бирюзовый</string>
+    <string name="label_purple">Фиолетовый</string>
+    <string name="label_green">Зелёный</string>
+    <string name="label_yellow">Жёлтый</string>
+    <string name="label_red">Красный</string>
+    <string name="label_orange">Оранжевый</string>
+    <string name="label_auto">Авто</string>
 </resources>

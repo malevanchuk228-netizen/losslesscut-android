@@ -279,4 +279,11 @@
     <string name="next_match">Nächster Treffer</string>
     <string name="select_audio_track">Tonspur auswählen</string>
     <string name="language_ru">Russisch</string>
+    <string name="label_cyan">Türkis</string>
+    <string name="label_purple">Lila</string>
+    <string name="label_green">Grün</string>
+    <string name="label_yellow">Gelb</string>
+    <string name="label_red">Rot</string>
+    <string name="label_orange">Orange</string>
+    <string name="label_auto">Auto</string>
 </resources>

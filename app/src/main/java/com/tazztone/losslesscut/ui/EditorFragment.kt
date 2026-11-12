@@ -551,8 +551,8 @@ class EditorFragment : BaseEditingFragment(R.layout.fragment_editor) {
         val items = audioTracks.mapIndexed { index, track ->
             val codec = track.mimeType.substringAfter('/').uppercase()
             val channels = when (track.channelCount) {
-                1 -> "Mono"
-                2 -> "Stereo"
+                1 -> getString(R.string.track_audio_mono)
+                2 -> getString(R.string.track_audio_stereo)
                 6 -> "5.1"
                 else -> if (track.channelCount > 0) "${track.channelCount}ch" else ""
             }

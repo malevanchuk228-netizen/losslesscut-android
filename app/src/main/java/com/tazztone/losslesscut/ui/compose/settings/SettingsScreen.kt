@@ -232,7 +232,7 @@ fun SettingsScreen(
                     currentValue = uiState.visualFrameStep,
                     displayValue = displayStepText,
                     valueRange = 0f..30f,
-                    presets = listOf(0 to "Auto", 1 to "1f", 5 to "5f", 10 to "10f", 15 to "15f", 30 to "30f"),
+                    presets = listOf(0 to stringResource(R.string.label_auto), 1 to "1f", 5 to "5f", 10 to "10f", 15 to "15f", 30 to "30f"),
                     onValueChanged = onVisualFrameStepChanged
                 )
 
@@ -743,12 +743,12 @@ fun AccentColorSetting(
 ) {
     val colorOptions = remember {
         listOf(
-            AccentColorOption("cyan", "Cyan", CyanAccent),
-            AccentColorOption("purple", "Purple", PurpleAccent),
-            AccentColorOption("green", "Green", GreenAccent),
-            AccentColorOption("yellow", "Yellow", YellowAccent),
-            AccentColorOption("red", "Red", RedAccent),
-            AccentColorOption("orange", "Orange", OrangeAccent)
+            AccentColorOption("cyan", stringResource(R.string.label_cyan), CyanAccent),
+            AccentColorOption("purple", stringResource(R.string.label_purple), PurpleAccent),
+            AccentColorOption("green", stringResource(R.string.label_green), GreenAccent),
+            AccentColorOption("yellow", stringResource(R.string.label_yellow), YellowAccent),
+            AccentColorOption("red", stringResource(R.string.label_red), RedAccent),
+            AccentColorOption("orange", stringResource(R.string.label_orange), OrangeAccent)
         )
     }
 
