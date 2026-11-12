@@ -278,4 +278,5 @@
     <string name="previous_match">Previous Match</string>
     <string name="next_match">Next Match</string>
     <string name="select_audio_track">Select Audio Track</string>
+    <string name="language_ru">Russian</string>
 </resources>
