@@ -803,7 +803,8 @@ fun LanguageSetting(
             listOf(
                 "system" to stringResource(R.string.language_system),
                 "en" to stringResource(R.string.language_en),
-                "de" to stringResource(R.string.language_de)
+                "de" to stringResource(R.string.language_de),
+                "ru" to stringResource(R.string.language_ru)
             ).forEach { (code, label) ->
                 val isSelected = currentLanguage == code
                 FilterChip(
