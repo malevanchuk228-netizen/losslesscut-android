@@ -741,8 +741,7 @@ fun AccentColorSetting(
     currentAccentColor: String,
     onAccentColorChanged: (String) -> Unit
 ) {
-    val colorOptions = remember {
-        listOf(
+    val colorOptions = listOf(
             AccentColorOption("cyan", stringResource(R.string.label_cyan), CyanAccent),
             AccentColorOption("purple", stringResource(R.string.label_purple), PurpleAccent),
             AccentColorOption("green", stringResource(R.string.label_green), GreenAccent),
@@ -750,7 +749,6 @@ fun AccentColorSetting(
             AccentColorOption("red", stringResource(R.string.label_red), RedAccent),
             AccentColorOption("orange", stringResource(R.string.label_orange), OrangeAccent)
         )
-    }
 
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
