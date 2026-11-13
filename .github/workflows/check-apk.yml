@@ -1,0 +1,21 @@
+name: Check existing APK
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the exact APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 43246714889 --repo "$GITHUB_REPOSITORY" --name LosslessCut-Android
+      - name: Verify signature and manifest
+        run: |
+          TOOLS="$ANDROID_HOME/build-tools/36.0.0"
+          sha256sum app-debug.apk
+          "$TOOLS/apksigner" verify --verbose --print-certs app-debug.apk
+          "$TOOLS/aapt" dump badging app-debug.apk
+          "$TOOLS/aapt" dump xmltree app-debug.apk AndroidManifest.xml | grep -E 'testOnly|debuggable|extractNativeLibs|uses-sdk|package='
