@@ -1,6 +1,9 @@
 name: Build Android APK
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - app/build.gradle.kts
 permissions:
   contents: read
 jobs:
@@ -15,6 +18,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c
       - name: Build APK
         run: ./gradlew :app:assembleDebug
+      - name: Verify APK signature and package
+        run: |
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/debug/app-debug.apk
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging app/build/outputs/apk/debug/app-debug.apk | head -15
       - uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808
         with:
           name: LosslessCut-Android
