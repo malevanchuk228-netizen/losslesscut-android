@@ -1,6 +1,9 @@
 name: Check existing APK
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/check-apk.yml
 permissions:
   contents: read
   actions: read
