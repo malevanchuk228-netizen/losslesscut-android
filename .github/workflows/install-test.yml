@@ -1,0 +1,30 @@
+name: Test APK installation
+on:
+  push:
+    paths:
+      - .github/workflows/install-test.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  install-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Download original APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 43246714889 --repo "$GITHUB_REPOSITORY" --name LosslessCut-Android
+      - name: Install Android emulator and image
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "emulator" "platform-tools" "system-images;android-35;google_apis;x86_64"
+          echo no | "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" create avd -n testdevice -k "system-images;android-35;google_apis;x86_64" --force
+      - name: Start emulator and install APK
+        run: |
+          if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then ACCEL=on; else ACCEL=off; fi
+          "$ANDROID_HOME/emulator/emulator" -avd testdevice -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -accel "$ACCEL" > /tmp/emulator.log 2>&1 &
+          timeout 480 "$ANDROID_HOME/platform-tools/adb" wait-for-device
+          timeout 480 bash -c 'until [ "$("$ANDROID_HOME/platform-tools/adb" shell getprop sys.boot_completed | tr -d "\r")" = 1 ]; do sleep 5; done'
+          "$ANDROID_HOME/platform-tools/adb" install app-debug.apk
+          "$ANDROID_HOME/platform-tools/adb" shell am start -n com.tazztone.losslesscut/.ui.MainActivity
